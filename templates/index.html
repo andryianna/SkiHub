@@ -1,77 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>MySQL Client</title>
-    <style>
-        body { background-color: black; color: white; font-family: Arial; }
-        input { width: 400px; }
-        pre { background: #222; padding: 10px; border-radius: 5px; overflow: auto; }
-        button { margin: 5px; }
-        #message { margin: 10px 0; color: yellow; }
-    </style>
+    <meta charset="UTF-8" />
+    <title>SkiHub – Home</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
 </head>
 <body>
-    <h1>MySQL Client</h1>
-
-    <button id="loginBtn">Login</button>
-    <button id="connectBtn">Connect</button>
-
-    <div id="message"></div>
-
-    <div id="querySection" style="display:none;">
-        <input type="text" id="sqlInput" placeholder="Scrivi la query">
-        <button id="runBtn">Run</button>
-        <pre id="output"></pre>
+<header>
+    <h1>SkiHub</h1>
+    <nav>
+        <a href="search.html">Comprensori</a>
+        <a href="profile.html">Profilo</a>
+    </nav>
+</header>
+<main>
+    <div class="card">
+        <h2>Benvenuto su SkiHub</h2>
+        <p>Trova i migliori comprensori sciistici e gestisci il tuo profilo.</p>
     </div>
-
-    <script>
-        // Login redirect
-        document.getElementById('loginBtn').addEventListener('click', () => {
-            window.location.href = "login.html";
-        });
-
-        // Connect to DB
-        document.getElementById('connectBtn').addEventListener('click', () => {
-            fetch('/connect', { method: 'POST' })
-                .then(res => res.json())
-                .then(data => {
-                    const msg = document.getElementById('message');
-                    if (data.success) {
-                        document.getElementById('querySection').style.display = 'block';
-                        msg.textContent = "Connesso al DB!";
-                    } else {
-                        msg.textContent = "Errore connessione: " + (data.error || "Unknown");
-                    }
-                });
-        });
-
-        // Run SQL query
-        document.getElementById('runBtn').addEventListener('click', () => {
-            const sql = document.getElementById('sqlInput').value;
-            const msg = document.getElementById('message');
-
-            if (!sql) {
-                msg.textContent = "Inserisci una query!";
-                return;
-            }
-
-            fetch('/query', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ sql })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    msg.textContent = "Errore: " + data.error;
-                    document.getElementById('output').textContent = "";
-                } else {
-                    msg.textContent = "Query eseguita con successo";
-                    document.getElementById('output').textContent = JSON.stringify(data, null, 2);
-                }
-            });
-        });
-    </script>
+</main>
+<footer>SkiHub © 2026</footer>
 </body>
 </html>

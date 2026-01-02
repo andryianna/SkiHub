@@ -1,0 +1,51 @@
+body {
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid #1e293b;
+}
+header h1 { margin: 0; font-size: 1.5rem; }
+nav a {
+color: #e5e7eb;
+text-decoration: none;
+margin-left: 1.5rem;
+}
+nav a:hover { color: #60a5fa; }
+main {
+max-width: 1200px;
+margin: auto;
+padding: 2rem;
+}
+.card {
+background: cyan;
+border: 1px solid #1e293b;
+border-radius: 12px;
+padding: 1.5rem;
+margin-bottom: 2rem;
+}
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+}
+input, select, button {
+width: 100%;
+padding: 0.7rem;
+margin-top: 0.5rem;
+border-radius: 8px;
+border: 1px solid #334155;
+background: #020617;
+color: #e5e7eb;
+}
+button {
+background: #2563eb;
+border: none;
+font-weight: bold;
+cursor: pointer;
+}
+button:hover { background: #1d4ed8; }
+footer {
+text-align: center;
+padding: 1rem;
+border-top: 1px solid #1e293b;
+}
