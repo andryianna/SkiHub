@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8" />
     <title>SkiHub – Home</title>
-    <link rel="stylesheet" href="../static/css/style.css" />
 </head>
 <body>
 <header>
     <h1>SkiHub</h1>
     <nav>
-        <a href="search.html">Comprensori</a>
-        <a href="profile.html">Profilo</a>
+        <a href="{{ url_for('index') }}">Home</a>
+
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('profile.profile') }}">Profilo</a>
+            <a href="{{ url_for('login.logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login.login') }}">Login</a>
+        {% endif %}
     </nav>
 </header>
-<main>
-    <div class="card">
-        <h2>Benvenuto su SkiHub</h2>
-        <p>Trova i migliori comprensori sciistici e gestisci il tuo profilo.</p>
-    </div>
-</main>
+<div class="card">
+    <h2>Benvenuto su SkiHub</h2>
+    <p>Trova i migliori comprensori sciistici e gestisci il tuo profilo.</p>
+</div>
 <footer>SkiHub © 2026</footer>
 </body>
 </html>

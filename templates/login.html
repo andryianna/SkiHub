@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title></head>
-    <link rel="stylesheet" href="stylec.css">
 <body>
 
-<div id="loginSection" style="display: compact">
+<div id="loginSection">
     <input type="text" id="usernameInput" placeholder="Username" size="50">
     <input type="password" id="passwordInput" placeholder="Password" size="50">
     <button id="loginBtn">Login</button>
-    <button id="registerBtn"><a href="register.html">Register</a></button>
+    <button id="registerBtn"><a href="{{ url_for('register.register') }}">Register</a></button>
 </div>
 
 <script>

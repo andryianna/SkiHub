@@ -1,10 +1,10 @@
-from flask import Blueprint, jsonify
+from flask import jsonify
 from sqlalchemy import text
 from db import db
 
-connect_bp = Blueprint("connect_bp", __name__)
+from app import connect
 
-@connect_bp.route("/connect", methods=["POST"])
+@connect.route("/connect", methods=["POST"])
 def connect():
     try:
         db.session.execute(text("SELECT 1"))
