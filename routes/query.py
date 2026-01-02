@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from sqlalchemy import text
-from db import db
+from dbModels.db import db
 
 query_bp = Blueprint("query_bp", __name__)
 

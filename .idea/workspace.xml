@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03d0f672-89b7-4834-a339-3f99afa08e0d" name="Changes" comment="implementazione iniziale interfaccia">
-      <change afterPath="$PROJECT_DIR$/routes/profile.py" afterDir="false" />
+    <list default="true" id="03d0f672-89b7-4834-a339-3f99afa08e0d" name="Changes" comment="supporto flask completo">
+      <change afterPath="$PROJECT_DIR$/dbModels/users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbModels/db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/connect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/query.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/query.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/register.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,11 +109,11 @@
       <recent name="C:\Users\andre\PycharmProjects\SkiHub" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\andre\PycharmProjects\SkiHub\dbModels" />
       <recent name="C:\Users\andre\PycharmProjects\SkiHub" />
       <recent name="C:\Users\andre\PycharmProjects\SkiHub\templates\static" />
       <recent name="C:\Users\andre\PycharmProjects\SkiHub\templates\css" />
       <recent name="C:\Users\andre\PycharmProjects\SkiHub\templates" />
-      <recent name="C:\Users\andre\PycharmProjects\SkiHub\routes" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -159,7 +159,7 @@
       <workItem from="1767020353391" duration="432000" />
       <workItem from="1767020827730" duration="6859000" />
       <workItem from="1767028654955" duration="830000" />
-      <workItem from="1767347385621" duration="17778000" />
+      <workItem from="1767347385621" duration="26583000" />
     </task>
     <task id="LOCAL-00001" summary="implementazione iniziale interfaccia">
       <option name="closed" value="true" />
@@ -169,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767353112300</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="supporto flask completo">
+      <option name="closed" value="true" />
+      <created>1767374236352</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1767374236352</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,11 +185,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implementazione iniziale interfaccia" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementazione iniziale interfaccia" />
+    <MESSAGE value="supporto flask completo" />
+    <option name="LAST_COMMIT_MESSAGE" value="supporto flask completo" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SkiHub$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1767366428515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SkiHub$SkiHub.coverage" NAME="SkiHub Coverage Results" MODIFIED="1767372565540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SkiHub$SkiHub.coverage" NAME="SkiHub Coverage Results" MODIFIED="1767384741473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SkiHub$profile.coverage" NAME="profile Coverage Results" MODIFIED="1767370884093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/routes" />
     <SUITE FILE_PATH="coverage/SkiHub$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1767371066671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/SkiHub$login.coverage" NAME="login Coverage Results" MODIFIED="1767370363037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/routes" />

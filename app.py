@@ -1,22 +1,20 @@
 from flask import Flask, render_template, Blueprint
-from db import db
+from dbModels.db import db
 from dotenv import load_dotenv
 from routes.profile import profile_bp
 from routes.login import login_bp
 from routes.register import register_bp
+from routes.connect import connect_bp
 import os
 
-load_dotenv()
-def initbp():
-    connect = Blueprint("connect", __name__)
-    app.register_blueprint(connect)
-    query = Blueprint("query", __name__)
-    app.register_blueprint(query)
 
+def initbp():
+    app.register_blueprint(connect_bp)
     app.register_blueprint(profile_bp)
     app.register_blueprint(login_bp)
     app.register_blueprint(register_bp)
 
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = "key"
