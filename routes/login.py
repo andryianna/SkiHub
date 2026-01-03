@@ -1,27 +1,31 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session
-
+from flask import Blueprint, request, render_template, jsonify, session, redirect
+from werkzeug.security import check_password_hash
 from dbModels.users import User
 
 login_bp = Blueprint("login", __name__)
-logout_bp = Blueprint("logout", __name__)
 
 @login_bp.route("/login", methods=["GET", "POST"])
 def login():
-    if 'user_id' in session:
-        return redirect(url_for('index'))
-    if request.method == "POST":
-        data = request.json
+    if request.method == "GET":
+        return render_template("login.html")
 
-        user = User(data["username"], data["password"])
-        query = User.query.filter_by(username=data["username"]).first()
-        if query is None:
-            error = "User not found"
-        passw = User.query.filter_by(username=data["username"]).get(data["password"])
-        if passw is None:
-            error = "Incorrect password"
-    return render_template("login.html")
+    data = request.get_json()
 
-@logout_bp.route("/logout")
+    user = User.query.filter_by(username=data["username"]).first()
+
+    if not user:
+        return jsonify({"success": False, "error": "Username non trovato"}), 401
+
+    if not check_password_hash(user.password, data["password"]):
+        return jsonify({"success": False, "error": "Password errata"}), 401
+
+    # ✅ LOGIN OK
+    session["user_id"] = user.id
+    session["username"] = user.username
+
+    return jsonify({"success": True}), 200
+
+@login_bp.route("/logout")
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect("/")

@@ -2,25 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title></head>
+    <title>Login</title>
+</head>
 <body>
 
-<div id="loginSection">
-    <input type="text" id="usernameInput" placeholder="Username" size="50">
-    <input type="password" id="passwordInput" placeholder="Password" size="50">
-    <button id="loginBtn">Login</button>
-    <button id="registerBtn"><a href="{{ url_for('register.register') }}">Register</a></button>
-</div>
+<h1>Login</h1>
+
+<label for="username"></label><input type="text" id="username" placeholder="Username"><br>
+<label for="password"></label><input type="password" id="password" placeholder="Password"><br>
+<button id="loginBtn">Login</button>
+
+<p id="error" style="color:red;"></p>
 
 <script>
-    document.getElementById("loginBtn").addEventListener("click", () => {
-        fetch("http://localhost:3000/login", {method: "POST",
-        headers: {'Content-Type': 'application/json'},
+document.getElementById("loginBtn").addEventListener("click", () => {
+    fetch("/login", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-        username: document.getElementById("usernameInput").value,
-        password: document.getElementById("passwordInput").value})
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
         })
     })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href = "/";
+        } else {
+            document.getElementById("error").innerText = data.error;
+        }
+    });
+});
 </script>
 
 </body>

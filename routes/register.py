@@ -1,7 +1,10 @@
-from flask import Blueprint, request, render_template, jsonify
-from dbModels.users import User
-from dbModels.db import db
 from datetime import datetime
+
+from flask import Blueprint, request, render_template, jsonify
+from werkzeug.security import generate_password_hash
+
+from dbModels.db import db
+from dbModels.users import User
 
 register_bp = Blueprint("register", __name__)
 
@@ -18,6 +21,12 @@ def register():
     print("DATA RECEIVED:", data)
 
     try:
+        hashed_password = generate_password_hash(
+            data["password"],
+            method="pbkdf2:sha256",
+            salt_length=16
+        )
+
         user = User(
             username=data["username"],
             first_name=data["firstname"],
@@ -26,7 +35,7 @@ def register():
                 data["dateOfBirth"], "%Y-%m-%d"
             ).date(),
             email=data["email"],
-            password=data["password"]
+            password=hashed_password
         )
 
         db.session.add(user)

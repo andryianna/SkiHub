@@ -1,15 +1,13 @@
-from flask import Flask, render_template, Blueprint
+from flask import Flask, render_template
 from dbModels.db import db
 from dotenv import load_dotenv
 from routes.profile import profile_bp
 from routes.login import login_bp
 from routes.register import register_bp
-from routes.connect import connect_bp
 import os
 
 
-def initbp():
-    app.register_blueprint(connect_bp)
+def init():
     app.register_blueprint(profile_bp)
     app.register_blueprint(login_bp)
     app.register_blueprint(register_bp)
@@ -23,7 +21,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
 
-initbp()
+init()
 @app.route("/")
 def index():
     return render_template("index.html")
