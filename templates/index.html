@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8" />
-    <title>SkiHub – Home</title>
-</head>
-<body>
-<header>
-    <h1>SkiHub</h1>
-    <nav>
-        <a href="{{ url_for('index') }}">Home</a>
+{% extends "base.html" %}
 
-        {% if session.get('user_id') %}
-            <a href="{{ url_for('profile.profile') }}">Profilo</a>
-            <a href="{{ url_for('login.logout') }}">Logout</a>
-        {% else %}
-            <a href="{{ url_for('login.login') }}">Login</a>
-        {% endif %}
-    </nav>
-</header>
+{% block title %}Home - SkiHub{% endblock %}
+
+{% block content %}
 <div class="card">
     <h2>Benvenuto su SkiHub</h2>
-    <p>Trova i migliori comprensori sciistici e gestisci il tuo profilo.</p>
 </div>
-<footer>SkiHub © 2026</footer>
-</body>
-</html>
+{% endblock %}

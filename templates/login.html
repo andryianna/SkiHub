@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-<h1>Login</h1>
+{% block title %}Login{% endblock %}
 
-<label for="username"></label><input type="text" id="username" placeholder="Username"><br>
-<label for="password"></label><input type="password" id="password" placeholder="Password"><br>
+{% block content %}
+<h2>Login</h2>
+
+    <label for="username"></label><input type="text" id="username" placeholder="Username"><br>
+    <label for="password"></label><input type="password" id="password" placeholder="Password"><br>
 <button id="loginBtn">Login</button>
 
 <p id="error" style="color:red;"></p>
@@ -20,20 +17,15 @@ document.getElementById("loginBtn").addEventListener("click", () => {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-            username: document.getElementById("username").value,
-            password: document.getElementById("password").value
+            username: this.username.value,
+            password: this.password.value
         })
     })
     .then(res => res.json())
     .then(data => {
-        if (data.success) {
-            window.location.href = "/";
-        } else {
-            document.getElementById("error").innerText = data.error;
-        }
+        if (data.success) location.href = "/";
+        else error.innerText = data.error;
     });
 });
 </script>
-
-</body>
-</html>
+{% endblock %}
