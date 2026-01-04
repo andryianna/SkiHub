@@ -17,41 +17,47 @@
     <button onclick="searchResorts()">Cerca</button>
 </div>
 
-<div id="results" class="results-grid"></div>
+<div class="resort-grid">
+    {% for resort in resorts %}
+    <div class="resort-card">
+        <h3>{{ resort.name }}</h3>
 
+        <p class="location">
+            📍 {{ resort.region }} – {{ resort.country }}
+        </p>
+
+        <p>
+            ⛰ Altitudine:
+            {{ resort.altitude_min }} m – {{ resort.altitude_max }} m
+        </p>
+
+        <div class="stats">
+            <span>🚡 {{ resort.lifts|length }} impianti</span>
+            <span>🎿 {{ resort.slopes|length }} piste</span>
+        </div>
+
+        <a href="/resort/{{ resort.id }}" class="btn">
+            Dettagli
+        </a>
+    </div>
+    {% else %}
+    <p>Nessun comprensorio trovato.</p>
+    {% endfor %}
+</div>
     <script>
         function searchResorts() {
-            fetch("/", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({
-                    name: document.getElementById("searchName").value,
-                    region: document.getElementById("searchRegion").value
-                })
-            })
+            const name = document.getElementById("searchName").value;
+            const region = document.getElementById("searchRegion").value;
 
-                .then(r => r.json())
-                .then(data => {
-                    const container = document.getElementById("results");
-                    container.innerHTML = "";
+            const params = new URLSearchParams();
+            if (name) params.append("name", name);
+            if (region) params.append("region", region);
 
-                    if (data.length === 0) {
-                        container.innerHTML = "<p>Nessun risultato trovato</p>";
-                        return;
-                    }
-
-                    data.forEach(r => {
-                        container.innerHTML += `
-                <div class="resort-card">
-                    <h3>${r.name}</h3>
-                    <p>${r.region}</p>
-                    <button onclick="saveResort(${r.id})">⭐ Salva</button>
-                </div>
-            `;
-                    });
-                });
+            window.location.href = "/?" + params.toString();
         }
+    </script>
 
+<script>
 function saveResort(resortId) {
     fetch("/resort/save", {
         method: "POST",

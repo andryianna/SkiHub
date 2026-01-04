@@ -23,22 +23,21 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 
 init()
-@app.route("/",methods = ["GET", "POST"])
+@app.route("/", methods=["GET"])
 def index():
-    if request.method == "GET":
-        return render_template("index.html")
-    data = request.get_json()
+    name = request.args.get("name")
+    region = request.args.get("region")
+
     query = Resort.query
-    if data.get('name'):
-        query = query.filter(Resort.name == data.get('name'))
+
+    if name:
+        query = query.filter(Resort.name.ilike(f"%{name}%"))
+    if region:
+        query = query.filter_by(region=region)
 
     resorts = query.all()
 
-    return [{"id":r.id,
-             "name":r.name,
-             "region":r.region
-             }for r in resorts]
-
+    return render_template("index.html", resorts=resorts)
 
 
 if __name__ == "__main__":

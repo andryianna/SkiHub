@@ -49,3 +49,57 @@ text-align: center;
 padding: 1rem;
 border-top: 1px solid #1e293b;
 }
+
+.resort-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.resort-card {
+    background: #1e1e1e;
+    border-radius: 12px;
+    padding: 18px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.resort-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+}
+
+.resort-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+}
+
+.location {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    margin-top: 10px;
+    background: #2aa8ff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #1c8edb;
+}
