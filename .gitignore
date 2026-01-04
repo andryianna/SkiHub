@@ -1,5 +1,8 @@
 *
 !*/
+!/*.py
+!/*.html
+
 
 !dbModels/
 !routes/
