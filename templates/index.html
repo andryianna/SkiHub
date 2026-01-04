@@ -1,9 +1,71 @@
 {% extends "base.html" %}
-
-{% block title %}Home - SkiHub{% endblock %}
+{% block title %}Ricerca Comprensori{% endblock %}
 
 {% block content %}
-<div class="card">
-    <h2>Benvenuto su SkiHub</h2>
+<h2>Trova il tuo comprensorio sciistico</h2>
+
+<div class="search-box">
+    <label for="searchName"></label><input type="text" id="searchName" placeholder="Nome comprensorio">
+
+    <label for="searchRegion"></label><select id="searchRegion">
+        <option value="">Tutte le regioni</option>
+        <option value="Trentino">Trentino</option>
+        <option value="Lombardia">Lombardia</option>
+        <option value="Valle d'Aosta">Valle d'Aosta</option>
+    </select>
+
+    <button onclick="searchResorts()">Cerca</button>
 </div>
+
+<div id="results" class="results-grid"></div>
+
+    <script>
+        function searchResorts() {
+            fetch("/", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    name: document.getElementById("searchName").value,
+                    region: document.getElementById("searchRegion").value
+                })
+            })
+
+                .then(r => r.json())
+                .then(data => {
+                    const container = document.getElementById("results");
+                    container.innerHTML = "";
+
+                    if (data.length === 0) {
+                        container.innerHTML = "<p>Nessun risultato trovato</p>";
+                        return;
+                    }
+
+                    data.forEach(r => {
+                        container.innerHTML += `
+                <div class="resort-card">
+                    <h3>${r.name}</h3>
+                    <p>${r.region}</p>
+                    <button onclick="saveResort(${r.id})">⭐ Salva</button>
+                </div>
+            `;
+                    });
+                });
+        }
+
+function saveResort(resortId) {
+    fetch("/resort/save", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({resort_id: resortId})
+    })
+    .then(r => r.json())
+    .then(d => {
+        if (!d.success) {
+            window.location.href = "/login";
+        } else {
+            alert("Comprensorio salvato!");
+        }
+    });
+}
+</script>
 {% endblock %}

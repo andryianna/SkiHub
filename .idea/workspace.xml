@@ -4,17 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03d0f672-89b7-4834-a339-3f99afa08e0d" name="Changes" comment="login funzionante">
-      <change afterPath="$PROJECT_DIR$/dbModels/PurchaseHistory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dbModels/SavedResort.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dbModels/createtable.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+    <list default="true" id="03d0f672-89b7-4834-a339-3f99afa08e0d" name="Changes" comment="gestione profilo funzionante">
+      <change afterPath="$PROJECT_DIR$/dbModels/Lift.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dbModels/Resort.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dbModels/Slope.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbModels/SavedResort.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbModels/SavedResort.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbModels/createtable.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbModels/createtable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbModels/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbModels/Users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/query.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +27,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="21" />
+    <option name="cachedIndexableFilesCount" value="23" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -75,37 +80,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Flask server.Flask (app.py).executor": "Run",
-    "Flask server.Flask.executor": "Run",
-    "Flask server.SkiHub.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.createtable.executor": "Run",
-    "Python.login.executor": "Run",
-    "Python.profile.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/andre/PycharmProjects/SkiHub",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Flask server.Flask (app.py).executor&quot;: &quot;Run&quot;,
+    &quot;Flask server.Flask.executor&quot;: &quot;Run&quot;,
+    &quot;Flask server.SkiHub.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.createtable.executor&quot;: &quot;Run&quot;,
+    &quot;Python.login.executor&quot;: &quot;Run&quot;,
+    &quot;Python.profile.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/PycharmProjects/SkiHub&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\andre\PycharmProjects\SkiHub" />
@@ -163,7 +168,8 @@
       <workItem from="1767020827730" duration="6859000" />
       <workItem from="1767028654955" duration="830000" />
       <workItem from="1767347385621" duration="27672000" />
-      <workItem from="1767432071595" duration="16769000" />
+      <workItem from="1767432071595" duration="19694000" />
+      <workItem from="1767517931598" duration="11310000" />
     </task>
     <task id="LOCAL-00001" summary="implementazione iniziale interfaccia">
       <option name="closed" value="true" />
@@ -197,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767435583027</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="gestione profilo funzionante">
+      <option name="closed" value="true" />
+      <created>1767460916247</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1767460916247</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,12 +222,13 @@
     <MESSAGE value="supporto flask completo" />
     <MESSAGE value="register funziona" />
     <MESSAGE value="login funzionante" />
-    <option name="LAST_COMMIT_MESSAGE" value="login funzionante" />
+    <MESSAGE value="gestione profilo funzionante" />
+    <option name="LAST_COMMIT_MESSAGE" value="gestione profilo funzionante" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SkiHub$createtable.coverage" NAME="createtable Coverage Results" MODIFIED="1767458857310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dbModels" />
+    <SUITE FILE_PATH="coverage/SkiHub$createtable.coverage" NAME="createtable Coverage Results" MODIFIED="1767539171829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dbModels" />
     <SUITE FILE_PATH="coverage/SkiHub$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1767366428515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SkiHub$SkiHub.coverage" NAME="SkiHub Coverage Results" MODIFIED="1767460267890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SkiHub$SkiHub.coverage" NAME="SkiHub Coverage Results" MODIFIED="1767539188318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SkiHub$profile.coverage" NAME="profile Coverage Results" MODIFIED="1767370884093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/routes" />
     <SUITE FILE_PATH="coverage/SkiHub$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1767371066671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/SkiHub$login.coverage" NAME="login Coverage Results" MODIFIED="1767370363037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/routes" />

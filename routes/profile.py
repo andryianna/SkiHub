@@ -1,7 +1,8 @@
-from flask import session, redirect, url_for, render_template, Blueprint
+from flask import session, redirect, url_for, render_template, Blueprint, request
 from dbModels.SavedResort import SavedResort
 from dbModels.PurchaseHistory import Purchase
-from dbModels.users import User
+from dbModels.db import db
+from dbModels.Users import User
 
 profile_bp = Blueprint("profile", __name__)
 
@@ -20,3 +21,17 @@ def profile():
         purchases=purchases,
         saved_resorts=saved_resorts
     )
+
+@profile_bp.route("/save",methods=["POST"])
+def save():
+    if "user_id" not in session:
+        return {"success": False}, 401
+    data = request.get_json()
+
+    try:
+        saved = SavedResort(user_id=session["user_id"],name = data["name"],region = data["region"])
+        db.session.add(saved)
+        db.session.commit()
+    except:
+        return {"success": False}, 500
+    return {"success": True}

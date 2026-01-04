@@ -1,6 +1,10 @@
 from app import app
-# cambia questo e decommenta per cambiare tabella da creare poi run current file
-# from dbModels.table import class
+from sqlalchemy import text
+# NON RUNNARE A CASO
+from dbModels.Resort import Resort
+from dbModels.Lift import Lift
+from dbModels.Slope import Slope
+
 from dbModels.db import db
 
 with app.app_context():
