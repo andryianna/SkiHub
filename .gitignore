@@ -1,9 +1,12 @@
 *
+!*/
 
-*/.idea
-*/__pycache__
+!dbModels/
+!routes/
+!static/
+!templates/
 
 !*.py
 !*.html
-!*css
+!*.css
 !*.js
