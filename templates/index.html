@@ -4,46 +4,66 @@
 {% block content %}
 <h2>Trova il tuo comprensorio sciistico</h2>
 
-<div class="search-box">
-    <label for="searchName"></label><input type="text" id="searchName" placeholder="Nome comprensorio">
+<div class="search-panel">
+    <form method="get" action="/">
+        <div class="search-row">
+            <label>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Nome comprensorio"
+                    value="{{ request.args.get('name', '') }}"
+                />
+            </label>
 
-    <label for="searchRegion"></label><select id="searchRegion">
-        <option value="">Tutte le regioni</option>
-        <option value="Trentino">Trentino</option>
-        <option value="Lombardia">Lombardia</option>
-        <option value="Valle d'Aosta">Valle d'Aosta</option>
-    </select>
-
-    <button onclick="searchResorts()">Cerca</button>
-</div>
-
-<div class="resort-grid">
-    {% for resort in resorts %}
-    <div class="resort-card">
-        <h3>{{ resort.name }}</h3>
-
-        <p class="location">
-            📍 {{ resort.region }} – {{ resort.country }}
-        </p>
-
-        <p>
-            ⛰ Altitudine:
-            {{ resort.altitude_min }} m – {{ resort.altitude_max }} m
-        </p>
-
-        <div class="stats">
-            <span>🚡 {{ resort.lifts|length }} impianti</span>
-            <span>🎿 {{ resort.slopes|length }} piste</span>
+            <label>
+                <select name="region">
+                    <option value="">Tutte le regioni</option>
+                    {% for r in ["Trentino", "Lombardia", "Valle d'Aosta"] %}
+                    <option value="{{ r }}"
+                        {% if request.args.get("region") == r %}selected{% endif %}
+                    >
+                        {{ r }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </label>
         </div>
 
-        <a href="/resort/{{ resort.id }}" class="btn">
-            Dettagli
-        </a>
-    </div>
-    {% else %}
-    <p>Nessun comprensorio trovato.</p>
-    {% endfor %}
+        <div class="search-row">
+            <label>
+                <input
+                    type="number"
+                    name="min_altitude"
+                    placeholder="Altitudine minima (m)"
+                    value="{{ request.args.get('min_altitude', '') }}"
+                />
+            </label>
+
+            <label>
+                <input
+                    type="number"
+                    name="min_slopes"
+                    placeholder="Min. numero piste"
+                    value="{{ request.args.get('min_slopes', '') }}"
+                />
+            </label>
+        </div>
+
+        <div class="search-row">
+            <label>
+                <select name="order">
+                    <option value="">Ordina per</option>
+                    <option value="name">Nome</option>
+                    <option value="altitude">Altitudine max</option>
+                </select>
+            </label>
+
+            <button type="submit">🔍 Cerca</button>
+        </div>
+    </form>
 </div>
+
     <script>
         function searchResorts() {
             const name = document.getElementById("searchName").value;
