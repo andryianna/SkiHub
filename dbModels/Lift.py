@@ -5,7 +5,7 @@ class Lift(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(150), nullable=False)
-    type = db.Column(db.String(50))
+    type = db.Column(db.String(50), nullable=False)
     capacity = db.Column(db.Integer)
 
     resort_id = db.Column(

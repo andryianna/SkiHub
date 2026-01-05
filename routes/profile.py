@@ -2,7 +2,7 @@ from flask import session, redirect, url_for, render_template, Blueprint, reques
 from dbModels.SavedResort import SavedResort
 from dbModels.PurchaseHistory import Purchase
 from dbModels.db import db
-from dbModels.Users import User
+from dbModels.User import User
 
 profile_bp = Blueprint("profile", __name__)
 

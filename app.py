@@ -54,9 +54,9 @@ def index():
         query = query.order_by(Resort.altitude_max.desc())
 
     resorts = query.all()
+    print(resorts)
 
     return render_template("index.html", resorts=resorts)
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)
-

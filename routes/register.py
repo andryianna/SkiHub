@@ -4,7 +4,7 @@ from flask import Blueprint, request, render_template, jsonify
 from werkzeug.security import generate_password_hash
 
 from dbModels.db import db
-from dbModels.Users import User
+from dbModels.User import User
 
 register_bp = Blueprint("register", __name__)
 

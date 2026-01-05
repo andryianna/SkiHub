@@ -3,10 +3,6 @@
 !/*.py
 !/*.html
 
-
-!/*.py
-!/*.html
-
 !dbModels/
 !routes/
 !static/

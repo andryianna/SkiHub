@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, jsonify, session, redirect
 from werkzeug.security import check_password_hash
-from dbModels.Users import User
+from dbModels.User import User
 
 login_bp = Blueprint("login", __name__)
 

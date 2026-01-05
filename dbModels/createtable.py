@@ -1,9 +1,9 @@
 from app import app
-from sqlalchemy import text
 # NON RUNNARE A CASO
-from dbModels.Resort import Resort
 from dbModels.Lift import Lift
+from dbModels.Resort import Resort
 from dbModels.Slope import Slope
+from dbModels.User import User
 
 from dbModels.db import db
 

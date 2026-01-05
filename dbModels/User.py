@@ -1,4 +1,6 @@
 from dbModels.db import db
+from functools import wraps
+from flask import session,redirect,url_for,abort
 
 class User(db.Model):
     __tablename__ = "user"  # obbligatorio per allineamento con il DB
@@ -10,3 +12,15 @@ class User(db.Model):
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
     username = db.Column(db.String(255), nullable=False)
+    role = db.Column(db.String(5), default='user', nullable=False)
+
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            return redirect(url_for('login.login'))
+        user = User.query.get(session['user_id'])
+        if user != 'admin' or not user:
+            abort(403)
+        return f(*args, **kwargs)
+    return decorated_function
