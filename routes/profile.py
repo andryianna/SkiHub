@@ -12,6 +12,10 @@ def profile():
         return redirect(url_for("login.login"))
 
     user = User.query.get(session["user_id"])
+
+    if not user:
+        session.clear()
+        return redirect(url_for("login.login"))
     purchases = Purchase.query.filter_by(user_id=user.id).all()
     saved_resorts = SavedResort.query.filter_by(user_id=user.id).all()
 
@@ -32,6 +36,7 @@ def save():
         saved = SavedResort(user_id=session["user_id"],name = data["name"],region = data["region"])
         db.session.add(saved)
         db.session.commit()
-    except:
+    except Exception as e:
+        print(e)
         return {"success": False}, 500
     return {"success": True}

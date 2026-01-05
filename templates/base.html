@@ -8,18 +8,8 @@
 <body>
 
 <header>
-    <h1>SkiHub</h1>
-    <nav>
-        <a href="{{ url_for('index') }}">Comprensori</a>
-
-        {% if session.get("user_id") %}
-            <a href="{{ url_for('profile.profile') }}">Profilo</a>
-            <a href="{{ url_for('login.logout') }}">Logout</a>
-        {% else %}
-            <a href="{{ url_for('login.login') }}">Login</a>
-            <a href="{{ url_for('register.register') }}">Register</a>
-        {% endif %}
-    </nav>
+    <h1><a href={{ url_for('index') }}>SkiHub</a></h1>
+    <div class="profile-icon"><a href={{ url_for('profile.profile') }}> 👤</a></div>
 </header>
 
 <main>

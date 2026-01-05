@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03d0f672-89b7-4834-a339-3f99afa08e0d" name="Changes" comment="boh">
-      <change afterPath="$PROJECT_DIR$/routes/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="03d0f672-89b7-4834-a339-3f99afa08e0d" name="Changes" comment="tette subito, voglio le tette adesso.">
+      <change afterPath="$PROJECT_DIR$/templates/dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resort_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbModels/Lift.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbModels/Lift.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbModels/Users.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbModels/User.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbModels/User.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbModels/User.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbModels/createtable.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbModels/createtable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/profile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/register.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -200,7 +199,7 @@
       <workItem from="1767432071595" duration="19694000" />
       <workItem from="1767517931598" duration="17778000" />
       <workItem from="1767604158729" duration="5490000" />
-      <workItem from="1767618390138" duration="7455000" />
+      <workItem from="1767618390138" duration="13136000" />
     </task>
     <task id="LOCAL-00001" summary="implementazione iniziale interfaccia">
       <option name="closed" value="true" />
@@ -266,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767551703846</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="tette subito, voglio le tette adesso.">
+      <option name="closed" value="true" />
+      <created>1767629534086</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1767629534086</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,14 +288,15 @@
     <MESSAGE value="ricerca comprensori implementata" />
     <MESSAGE value="boh che ne so" />
     <MESSAGE value="boh" />
-    <option name="LAST_COMMIT_MESSAGE" value="boh" />
+    <MESSAGE value="tette subito, voglio le tette adesso." />
+    <option name="LAST_COMMIT_MESSAGE" value="tette subito, voglio le tette adesso." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SkiHub$Slope.coverage" NAME="Slope Coverage Results" MODIFIED="1767539497812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dbModels" />
-    <SUITE FILE_PATH="coverage/SkiHub$createtable.coverage" NAME="createtable Coverage Results" MODIFIED="1767629219702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dbModels" />
+    <SUITE FILE_PATH="coverage/SkiHub$createtable.coverage" NAME="createtable Coverage Results" MODIFIED="1767631236829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dbModels" />
     <SUITE FILE_PATH="coverage/SkiHub$User.coverage" NAME="User Coverage Results" MODIFIED="1767629110498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dbModels" />
     <SUITE FILE_PATH="coverage/SkiHub$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1767366428515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SkiHub$SkiHub.coverage" NAME="SkiHub Coverage Results" MODIFIED="1767629359402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SkiHub$SkiHub.coverage" NAME="SkiHub Coverage Results" MODIFIED="1767632603638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SkiHub$profile.coverage" NAME="profile Coverage Results" MODIFIED="1767370884093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/routes" />
     <SUITE FILE_PATH="coverage/SkiHub$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1767371066671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/SkiHub$login.coverage" NAME="login Coverage Results" MODIFIED="1767370363037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/routes" />

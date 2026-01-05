@@ -1,8 +1,5 @@
 from app import app
 # NON RUNNARE A CASO
-from dbModels.Lift import Lift
-from dbModels.Resort import Resort
-from dbModels.Slope import Slope
 from dbModels.User import User
 
 from dbModels.db import db

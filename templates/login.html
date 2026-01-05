@@ -3,29 +3,30 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
+    <h2>Login</h2>
 
     <label for="username"></label><input type="text" id="username" placeholder="Username"><br>
     <label for="password"></label><input type="password" id="password" placeholder="Password"><br>
-<button id="loginBtn">Login</button>
+    <button id="loginBtn">Login</button>
+    <a href = {{ url_for('register.register') }}><button id="registerBtn">Register</button></a>
 
-<p id="error" style="color:red;"></p>
+    <p id="error" style="color:red;"></p>
 
-<script>
-document.getElementById("loginBtn").addEventListener("click", () => {
-    fetch("/login", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            username: this.username.value,
-            password: this.password.value
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.success) location.href = "/";
-        else error.innerText = data.error;
-    });
-});
-</script>
+    <script>
+        document.getElementById("loginBtn").addEventListener("click", () => {
+            fetch("/login", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    username: this.username.value,
+                    password: this.password.value
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) location.href = "/";
+                    else error.innerText = data.error;
+                });
+        });
+    </script>
 {% endblock %}

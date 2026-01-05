@@ -1,227 +1,160 @@
+        :root {
+            --bg-main: #0ea5e9;
+            --bg-soft: rgba(255,255,255,0.15);
+            --bg-card: rgba(255,255,255,0.2);
+            --border-soft: rgba(0,0,0,0.25);
+            --text-main: #0f172a;
+        }
 
-/* ===== GRID N x 3 ===== */
-.resort-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr); /* 3 colonne fisse */
-    gap: 24px;
-    margin-top: 25px;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-    .resort-grid {
-        grid-template-columns: repeat(2, 1fr); /* tablet */
-    }
-}
+        body {
+            font-family: "Segoe UI", system-ui, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
 
-@media (max-width: 640px) {
-    .resort-grid {
-        grid-template-columns: 1fr; /* mobile */
-    }
-}
+        /* ===== HEADER ===== */
+        header {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 36px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+        }
 
-/* ===== CARD ===== */
-.resort-card {
-    background: #1f1f1f;
-    border-radius: 14px;
-    padding: 18px;
-    color: #fff;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+        header h1 {
+            font-size: 1.7rem;
+            font-weight: 600;
+        }
 
-.resort-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.5);
-}
+        .profile-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-/* ===== HEADER ===== */
-.resort-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        /* ===== LAYOUT ===== */
+        .container {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
 
-.resort-header h3 {
-    font-size: 1.1rem;
-    margin: 0;
-}
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            background: var(--bg-soft);
+            border-radius: 16px;
+            padding: 28px;
+            height: fit-content;
+        }
 
-.region {
-    background: #2aa8ff;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-size: 0.75rem;
-}
+        .sidebar h2 {
+            margin-bottom: 24px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
 
-/* ===== INFO ===== */
-.resort-info p {
-    margin: 6px 0;
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
+        .filter-group {
+            margin-bottom: 20px;
+        }
 
-/* ===== ACTION ===== */
-.resort-actions {
-    margin-top: 14px;
-    text-align: center;
-}
+        .filter-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
 
-.btn-primary {
-    background: #2aa8ff;
-    color: #fff;
-    padding: 8px 14px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-}
+        .filter-group input,
+        .filter-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255,255,255,0.5);
+        }
 
-.btn-primary:hover {
-    background: #1d8edb;
-}
+        .sidebar button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            background: rgba(15,23,42,0.9);
+            color: white;
+        }
 
-/* ===== EMPTY ===== */
-.no-results {
-    color: #aaa;
-    grid-column: 1 / -1; /* centra il messaggio nella griglia */
-}
+        .sidebar button:hover {
+            background: rgba(15,23,42,1);
+        }
 
+        /* ===== CONTENT ===== */
+        .content {
+            background: var(--bg-soft);
+            border-radius: 18px;
+            padding: 32px;
+        }
 
+        /* ===== GRID N x 3 ===== */
+        .resort-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
 
+        .resort-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 18px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
+        .resort-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
 
+        .resort-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
 
-.site-title {
-    font-size: 48px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family:  "Times New Roman", Georgia, serif;
-}
+        .resort-card p {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            opacity: 0.9;
+        }
 
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-weight: 600;
+            opacity: 0.8;
+        }
 
-body {
-    background-color: #60a5fa;
-}
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .resort-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-.comprensorio-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
-    letter-spacing: 2px;
-    text-transform: uppercase, lowercase;
-    font-family:  "Times New Roman", Georgia, serif;
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
 
-}
-.registazione-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: right;
-    letter-spacing: 2px;
-    text-transform: uppercase , lowercase;
-    font-family:  "Times New Roman", Georgia, serif;
-
-
-}
-body {
-    display: flex;
-    justify-content: space-between;
-    align-items: left;
-    border-bottom: 1px solid #1e293b;
-}
-header h1 { margin: 0; font-size:1.5 rem; }
-nav a {
-    color: #e5e7eb;
-    text-decoration: none;
-    margin-left: 1.5rem;
-}
-nav a:hover { color: #60a5fa; }
-main {
-    max-width: 1200px;
-    margin: auto;
-    padding: 2rem;
-}
-.card {
-    background: cyan;
-    border: 1px solid #1e293b;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-}
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-input, select, button {
-    width: 100%;
-    padding: 0.7rem;
-    margin-top: 0.5rem;
-    border-radius: 8px;
-    border: 1px solid #334155;
-    background: #020617;
-    color: #e5e7eb;
-}
-button {
-    background: #2563eb;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-
-.resort-card {
-    background: #1e1e1e;
-    border-radius: 12px;
-    padding: 18px;
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.resort-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.4);
-}
-
-.resort-card h3 {
-    margin: 0 0 8px 0;
-    font-size: 1.2rem;
-}
-
-.location {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.stats {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    font-size: 0.9rem;
-}
-
-.btn {
-    display: block;
-    text-align: center;
-    padding: 8px;
-    margin-top: 10px;
-    background: #2aa8ff;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.btn:hover {
-    background: #1c8edb;
-}
-
-
+            .resort-grid {
+                grid-template-columns: 1fr;
+            }
+        }
