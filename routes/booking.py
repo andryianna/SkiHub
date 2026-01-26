@@ -26,4 +26,5 @@ def new_booking(resort_id):
         db.session.commit()
         return redirect(url_for("profile.profile"))
 
+
     return render_template("booking.html", resort=resort)
