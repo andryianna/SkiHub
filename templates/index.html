@@ -36,6 +36,7 @@
     <main class="content">
         <div class="resort-grid">
             {% for resort in resorts %}
+                <a href="{{ url_for('resort.resort_detail', resort_id=resort.id) }}">
                 <div class="resort-card">
                     <h3>{{ resort.name }}</h3>
                     <p>📍 {{ resort.region }} – {{ resort.country }}</p>
@@ -43,6 +44,7 @@
                     <p>🚡 {{ resort.lifts|length }} impianti</p>
                     <p>🎿 {{ resort.slopes|length }} piste</p>
                 </div>
+                </a>
             {% else %}
                 <div class="no-results">Nessun comprensorio trovato</div>
             {% endfor %}

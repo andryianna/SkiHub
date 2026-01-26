@@ -13,6 +13,9 @@ def profile():
 
     user = User.query.get(session["user_id"])
 
+    if user.role == "admin":
+        return render_template("dashboard.html", user=user)
+
     if not user:
         session.clear()
         return redirect(url_for("login.login"))

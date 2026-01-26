@@ -17,6 +17,7 @@
     <label for="lastname"></label><input id="lastname" value="{{ user.last_name }}">
     <label for="email"></label><input id="email" value="{{ user.email }}">
     <button onclick="updateProfile()">Salva</button>
+    <a href="{{ url_for('login.logout') }}">Logout</a>
 </div>
 
 <!-- TAB ACQUISTI -->

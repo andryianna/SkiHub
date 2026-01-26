@@ -1,19 +1,24 @@
 from flask import Flask, render_template, request
-from sqlalchemy import func
 import os
 
 from dbModels.Resort import Resort
 from dbModels.db import db
 from dotenv import load_dotenv
+
+from routes.admin import admin_bp
 from routes.profile import profile_bp
 from routes.login import login_bp
 from routes.register import register_bp
-
+from routes.resorts import resort_bp
+from routes.booking import booking_bp
 
 def init():
     app.register_blueprint(profile_bp)
     app.register_blueprint(login_bp)
     app.register_blueprint(register_bp)
+    app.register_blueprint(admin_bp)
+    app.register_blueprint(resort_bp)
+    app.register_blueprint(booking_bp)
 
 load_dotenv()
 app = Flask(__name__)
@@ -30,8 +35,6 @@ def index():
 
     name = request.args.get("name")
     region = request.args.get("region")
-    min_altitude = request.args.get("min_altitude")
-    min_slopes = request.args.get("min_slopes")
     order = request.args.get("order")
 
     if name:
@@ -39,14 +42,6 @@ def index():
 
     if region:
         query = query.filter_by(region=region)
-
-    if min_altitude:
-        query = query.filter(Resort.altitude_max >= int(min_altitude))
-
-    if min_slopes:
-        query = query.outerjoin(Resort.slopes) \
-                     .group_by(Resort.id) \
-                     .having(func.count() >= int(min_slopes))
 
     if order == "name":
         query = query.order_by(Resort.name)
@@ -59,4 +54,5 @@ def index():
     return render_template("index.html", resorts=resorts)
 
 if __name__ == "__main__":
+
     app.run(port=3000, debug=True)

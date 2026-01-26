@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from dbModels.db import db
 from dbModels.Resort import Resort
 from dbModels.Slope import Slope
-from dbModels.User import User,admin_required
+from dbModels.User import admin_required
 from dbModels.Lift import Lift
 
 admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
@@ -11,7 +11,7 @@ admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
 @admin_required
 def dashboard():
     resorts = Resort.query.all()
-    return render_template(url_for('dashboard'),resorts=resorts)
+    return render_template("dashboard.html",resorts=resorts)
 
 @admin_bp.route('/resort/new', methods=['GET', 'POST'])
 @admin_required
@@ -25,8 +25,8 @@ def new_resort():
         )
         db.session.add(resort)
         db.session.commit()
-        return redirect(url_for('dashboard'))
-    return render_template(url_for('resort_form'))
+        return redirect(url_for('admin.dashboard'))
+    return render_template("resort_form.html")
 
 @admin_bp.route("/resort/<int:resort_id>/edit", methods=["GET", "POST"])
 @admin_required
@@ -42,7 +42,7 @@ def edit_resort(resort_id):
         db.session.commit()
         return redirect(url_for("admin.dashboard"))
 
-    return render_template("admin/resort_form.html", resort=resort)
+    return render_template("resort_form.html", resort=resort)
 
 @admin_bp.route("/resort/<int:resort_id>/lifts", methods=["POST"])
 @admin_required
