@@ -1,6 +1,6 @@
 from flask import session, redirect, url_for, render_template, Blueprint, request
 from dbModels.SavedResort import SavedResort
-from dbModels.PurchaseHistory import Purchase
+from dbModels.Purchase import Purchase
 from dbModels.db import db
 from dbModels.User import User
 
